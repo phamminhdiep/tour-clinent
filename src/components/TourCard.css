@@ -1,0 +1,49 @@
+.card{
+    overflow: hidden;
+    box-shadow: 0 2px 20px gray;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: 200ms ease-in;
+    padding-bottom: 20px;
+    
+}
+.card-img{
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.card-name{
+    padding: 10px;
+}
+
+.card-price{
+    padding: 10px;
+}
+
+.card-button{
+    
+    color: green;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 0.7rem 1rem;
+    white-space: nowrap;
+    border-radius: 4px;
+}
+
+.card-button:hover{
+    background-color: green;
+    transition: all 0.2s ease-in-out;
+}
+
+.card-link{
+    text-decoration: none;
+    color: green;
+}
+.card-link:hover{
+    transition: all 0.2s ease-in-out;
+    color: white;
+}

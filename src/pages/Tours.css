@@ -1,0 +1,7 @@
+.tours-container{
+    margin-top: 150px;
+    display: grid;
+    grid-template-columns: 500px 500px 500px;
+    gap:50px;
+    justify-content: center;
+}

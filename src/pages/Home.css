@@ -1,0 +1,43 @@
+.hero {
+    width: 100%;
+    height: 100%;
+}
+
+.content{
+    position: absolute;
+    top: 45%;
+    left:50%;
+    transform: translate(-50%);
+    width: 100%;
+}
+
+.content h1{
+    font-size: 3rem;
+    font-weight: 800;
+    color: #fff;
+}
+
+.content a{
+    position: relative;
+    top: 20px;
+    background-color: #fff;
+    color: #000;
+    border-radius: 4px;
+}
+
+.login-button{
+    text-decoration: none;
+    color: green;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 0.7rem 1rem;
+    white-space: nowrap;
+}
+
+.login-button:hover{
+    background-color: green;
+    color: #fff ;
+    border-radius: 4px ;
+    transition: all 0.2s ease-in-out;
+}
+
