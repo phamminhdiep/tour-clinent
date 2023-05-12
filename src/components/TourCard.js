@@ -13,7 +13,7 @@ function TourCard(props) {
                 <img className='card-img' alt='image' src={process.env.PUBLIC_URL + imageUrl}></img>
                 <h3 className='card-name'>{props.tour.name}</h3>
                 <p className='card-price'>{formattedprice} VND</p>
-                <button className='card-button'><Link className='card-link'>Xem thêm</Link></button>
+                <button className='card-button'><Link className='card-link' to={`/tours/${props.tour.id}`}>Xem thêm</Link></button>
             </div>
         </div>
     );
