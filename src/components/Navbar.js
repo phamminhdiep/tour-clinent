@@ -14,17 +14,22 @@ export default function Navbar(){
                 
                 <li>
                     <Link className="nav-link" to={'/tours'}>
-                    <i class="fa-solid fa-umbrella-beach"></i> Tours
+                        <i class="fa-solid fa-umbrella-beach"></i> Tours
                     </Link>
                 </li>
                 <li>
-                    <Link className="nav-link">
+                    <Link className="nav-link" to={'/booking'}>
                         <i class="fa-solid fa-cart-shopping"></i> Booking
                     </Link>
                 </li>
                 <li>
                     <Link className="nav-link">
                     <i class="fa-solid fa-user"></i> Tài Khoản
+                    </Link>
+                </li>
+                <li>
+                    <Link className="nav-link" to={'/admin'}>
+                        <i className="fa-solid fa-house"></i> Admin
                     </Link>
                 </li>
             </ul>

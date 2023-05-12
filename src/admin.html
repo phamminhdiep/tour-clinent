@@ -1,0 +1,275 @@
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+    }
+
+    .admin-page {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    .admin-sidebar {
+        width: 200px;
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+    }
+
+    .admin-content {
+        flex-grow: 1;
+        max-width: 800px;
+        background-color: #fff;
+        padding: 20px;
+    }
+
+    .admin-sidebar ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .admin-sidebar li {
+        margin-bottom: 10px;
+    }
+
+    .admin-sidebar a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .admin-sidebar a:hover {
+        text-decoration: underline;
+    }
+
+    .admin-header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
+    .admin-header h1 {
+        margin: 0;
+        font-size: 24px;
+    }
+
+    .admin-tours,
+    .admin-users {
+        margin-bottom: 20px;
+    }
+
+    .admin-tours h2,
+    .admin-users h2 {
+        margin-top: 0;
+        font-size: 18px;
+    }
+
+    .admin-tours table,
+    .admin-users table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .admin-tours th,
+    .admin-users th,
+    .admin-tours td,
+    .admin-tours th,
+    .admin-tours td,
+    .admin-users td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .admin-tours th,
+    .admin-users th {
+        background-color: #f5f5f5;
+    }
+
+    .admin-tours .actions,
+    .admin-users .actions {
+        white-space: nowrap;
+    }
+
+    .admin-tours .actions a,
+    .admin-users .actions a {
+        margin-right: 5px;
+        color: #428bca;
+        text-decoration: none;
+    }
+
+    .admin-tours .actions a:hover,
+    .admin-users .actions a:hover {
+        text-decoration: underline;
+    }
+    .hidden {
+        display: none;
+    }
+    .add-new-tour {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #428bca;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.add-new-tour:hover {
+    background-color: #3071a9;
+}
+</style>
+
+<div class="admin-page">
+    <div class="admin-sidebar">
+        <ul>
+            <li><a href="#" id="tourLink">Quản lý Tour</a></li>
+            <li><a href="#" id="userLink">Quản lý người dùng</a></li>
+        </ul>
+    </div>
+    <div class="admin-content">
+        <div class="admin-header">
+            <h1>Trang quản lý admin</h1>
+        </div>
+
+        <div id="tourSection" class="hidden">
+            
+            <div class="admin-tours">
+                <h2>Quản lý Tour</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>tên</th>
+                            <th>ngày bắt đầu</th>
+                            <th>thời gian</th>
+                            <th>giá</th>
+                            <th>ảnh</th>
+                            <th>Mô tả</th>
+                        </tr>
+                    </thead>
+                        <tbody>
+                            <!-- Tour 1 -->
+                            <tr>
+                                <td>1</td>
+                                <td>Hạ Long</td>
+                                <td>13/02/2002</td>
+                                <td>2 ngày 1 đêm</td>
+                                <td>2000000đ</td>
+                                <td>tour1.jpg</td>
+                                <td>Mô tả</td>
+                                <td class="actions">
+                                    <a href="#">Edit</a>
+                                    <a href="#">Delete</a>
+                                </td>
+                            </tr>
+                            <!-- Tour 2 -->
+                            <tr>
+                                <td>2</td>
+                                <td>Sầm sơn</td>
+                                <td>23/09/2023</td>
+                                <td>3 ngày 2 đêm</td>
+                                <td>30000000đ</td>
+                                <td>tour2.jpg</td>
+                                <td>Mô tả</td>
+                                <td class="actions">
+                                    <a href="#">Edit</a>
+                                    <a href="#">Delete</a>
+                                </td>
+                            </tr>
+                            <!-- Add more tours as needed -->
+                        </tbody>
+                    </table>
+                </div>
+                <a href="#" class="add-new-tour">Thêm mới Tour</a>
+        </div>
+
+        <div id="userSection" class="hidden">
+            <div class="admin-users">
+                <h2>Quản lý người dùng</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tên người dùng</th>
+                            <th>Email</th>
+                            <th>Số điện thoại</th>
+                            <th>Địa chỉ</th>
+                            <th>Mô tả</th>
+                            <th class="actions">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- User 1 -->
+                        <tr>
+                            <td>1</td>
+                            <td>Người dùng A</td>
+                            <td>usera@example.com</td>
+                            <td>123456789</td>
+                            <td>hà Đông</td>
+                            <td>Không</td>
+                            <td class="actions">
+                                <a href="#">Edit</a>
+                                <a href="#">Delete</a>
+                            </td>
+                        </tr>
+                        <!-- User 2 -->
+                        <tr>
+                            <td>2</td>
+                            <td>Người dùng B</td>
+                            <td>userb@example.com</td>
+                            <td>987654321</td>
+                            <td>hà tây</td>
+                            <td>không</td>
+                            <td class="actions">
+                                <a href="#">Edit</a>
+                                <a href="#">Delete</a>
+                            </td>
+                        </tr>
+                        <!-- Add more users as needed -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // JavaScript code to handle click events
+
+    // Get references to the links and sections
+    const tourLink = document.getElementById('tourLink');
+    const userLink = document.getElementById('userLink');
+    const tourSection = document.getElementById('tourSection');
+    const userSection = document.getElementById('userSection');
+
+    // Add click event listeners to the links
+    tourLink.addEventListener('click', function(event) {
+        event.preventDefault();
+        showSection('tour');
+    });
+
+    userLink.addEventListener('click', function(event) {
+        event.preventDefault();
+        showSection('user');
+    });
+
+    // Function to show the selected section and hide the other section
+    function showSection(section) {
+        if (section === 'tour') {
+            tourLink.classList.add('active');
+            userLink.classList.remove('active');
+            tourSection.classList.remove('hidden');
+            userSection.classList.add('hidden');
+        } else if (section === 'user') {
+            tourLink.classList.remove('active');
+            userLink.classList.add('active');
+            tourSection.classList.add('hidden');
+            userSection.classList.remove('hidden');
+        }
+    }
+</script>
