@@ -9,11 +9,11 @@ import Button from 'react-bootstrap/Button';
 
 export default function Admin() {
     const [tours, setTours] = useState([]);
-    const [users, setUsers] = useState([]);
+    
 
     useEffect(() => {
         fetchTours();
-        fetchUsers();
+        
     }, []);
 
     const fetchTours = async () => {
@@ -25,14 +25,7 @@ export default function Admin() {
             console.error('Error fetching', error);
         }
     };
-    const fetchUsers = async () => {
-        try {
-            const response = await axios.get('http://localhost:8080/users');
-            setUsers(response.data);
-        } catch (error) {
-            console.error('Error fetching entities:', error);
-        }
-    };
+
 
 
     return (
