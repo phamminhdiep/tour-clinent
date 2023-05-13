@@ -72,7 +72,8 @@ const EditTour = ({ match }) => {
             onChange={handleChange}
           ></textarea>
         </div>
-        <button type="submit">Update Product</button>
+      
+        <button className='button' type="submit">Update Product</button>
       </form>
     </div>
   );

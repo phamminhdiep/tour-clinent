@@ -163,3 +163,11 @@ background-color: #3071a9;
   .hidden {
     display: none;
   }
+
+  .button-container{
+    padding-top: 10px;
+    display: flex;
+    grid-template-columns: repeat(2);
+    gap: 10px;
+    margin-left: 42%;
+  }

@@ -55,16 +55,19 @@ export default function Admin() {
                             <td>{data.image_url}</td>
                             <td>{data.description}</td>
                             <td className="actions">
-                                <Link >Edit   </Link>
-                                <Link >Delete   </Link>
+                                <Link to={`/admin/edit/${data.id}`}> Edit </Link>
+                                <Link to={`/admin/delete/${data.id}`}> Delete </Link>
                             </td>
                         </tr>
                     )}
                 </tbody>
             </Table>
-            <Link><Button variant="primary">Thêm mới tour</Button></Link>
-            <br></br>
-            <Link to={'/'}><Button variant="primary">Trở lại</Button></Link>
+            <div className='button-container'>
+                <Link to={'/admin/add'}><Button variant="primary" className='button'>Thêm mới tour</Button></Link>
+                <Link to={'/'}><Button variant="primary" className='button'>Trở lại</Button></Link>
+            </div>
+           
+            
             
             {/* <Table striped bordered hover>
                 <thead>
