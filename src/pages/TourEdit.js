@@ -10,8 +10,9 @@ import { Link } from 'react-router-dom';
 export default function TourEdit() {
     const { tourId } = useParams();
     const [tour, setTour] = useState({
-
+    
     });
+    const navigate = useNavigate();
 
 
     useEffect(() => {
@@ -20,7 +21,7 @@ export default function TourEdit() {
 
     const fetchTour = async () => {
         try {
-            const response = await axios.get(`http://localhost:8080/tours/${tourId}`);
+            const response = await axios.get(`http://localhost:8060/tours/${tourId}`);
             setTour(response.data);
             console.log(tour);
         } catch (error) {
@@ -32,15 +33,14 @@ export default function TourEdit() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-
         try {
-            await axios.put(`http://localhost:8080/tours/${tourId}`, tour);
-            // useNavigate(-1);
+            await axios.put(`http://localhost:8060/tours/${tourId}`, tour);
+            navigate(-1)
         } catch (error) {
             console.error(error);
         }
     };
-    console.log(tour);
+    
     return (
         <div>
             <h2>Sửa Tour</h2>
@@ -49,16 +49,6 @@ export default function TourEdit() {
                 <input type="text" id="tourName" name="name" value={tour.name} onChange={(event) =>
                     setTour({ ...tour, name: event.target.value })
                 } />
-                <label for="tourStartDate">Ngày bắt đầu:</label>
-                <input type="text" id="tourStartDate" name="star" value={tour.time_start} onChange={(event) =>
-                    setTour({ ...tour, time_start: event.target.value })
-                } />
-
-                <label for="tourEndDate">Thời gian:</label>
-                <input type="text" id="tourEndDate" name="tourEndDate" value={tour.travel_time} onChange={(event) =>
-                    setTour({ ...tour, travel_time: event.target.value })
-                } />
-
                 <label for="tourDescription">Mô tả:</label>
                 <textarea id="tourDescription" name="tourDescription" value={tour.description} onChange={(event) =>
                     setTour({ ...tour, description: event.target.value })
@@ -70,8 +60,8 @@ export default function TourEdit() {
                 } />
 
                 <label for="tourImage">Hình ảnh:</label>
-                <input type="text" id="tourImage" name="tourImage" value={tour.image_url} onChange={(event) =>
-                    setTour({ ...tour, image_url: event.target.value })
+                <input type="text" id="tourImage" name="tourImage" value={tour.imageUrl} onChange={(event) =>
+                    setTour({ ...tour, imageUrl: event.target.value })
                 } />
                 <div className='button-container-edit'>
                     <input type="submit" value="Lưu Tour" onClick={handleSubmit} />

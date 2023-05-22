@@ -18,7 +18,7 @@ export default function Tours() {
 
   const loadTours = async () => {
     try{
-      const res = await axios.get('http://localhost:8080/tours')
+      const res = await axios.get('http://localhost:8060/tours')
       setContainer(res.data)
     }catch(error){
       console.log('error!!', error)

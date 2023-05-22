@@ -1,27 +1,27 @@
-import React, { useEffect, useState } from 'react'
-import "./DeleteTour.css"
+import React from 'react'
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router';
 import { useParams } from 'react-router';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router';
 
-export default function DeleteTour() {
 
-    const { tourId } = useParams();
-    const [tour, setTour] = useState({
+export default function HotelDelete() {
+    const { hotelId } = useParams();
+    const [hotel, setHotel] = useState({
         
     });
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetchTour();
-    }, [tourId]);
+        fetchHotel();
+    }, [hotelId]);
 
-    const fetchTour = async () => {
+    const fetchHotel = async () => {
         try {
-            const response = await axios.get(`http://localhost:8081/tours/${tourId}`);
-            setTour(response.data);
-            console.log(tour);
+            const response = await axios.get(`http://localhost:8060/hotels/${hotelId}`);
+            setHotel(response.data);
+            console.log(hotel);
         } catch (error) {
             console.error('Error fetching', error);
         }
@@ -33,14 +33,14 @@ export default function DeleteTour() {
         event.preventDefault();
         console.log(123)
         try {
-            await axios.delete(`http://localhost:8081/tours/${tourId}`, tour);
+            await axios.delete(`http://localhost:8060/hotels/${hotelId}`, hotel);
             navigate(-1);
         } catch (error) {
             console.error(error);
         }
         
     };
-    console.log(tour);
+    
 
     return (
         <div>

@@ -11,14 +11,14 @@ export default function Tour() {
 
   useEffect(() => {
     const loadTour = () => {
-      fetch(`http://localhost:8080/tours/${id}`)
+      fetch(`http://localhost:8060/tours/${id}`)
         .then((response) => response.json())
         .then((data) => setTour(data))
     }
     loadTour();
   },[id]);
 
-  const img_path = '/' + tour.image_url;
+  const img_path = '/' + tour.imageUrl;
   return (
     <div>
       <Navbar></Navbar>
@@ -37,14 +37,7 @@ export default function Tour() {
                 <h3 className="interface-right-textMSP">- Hủy tour trước 10 ngày khởi hành, khách chịu phí phạt 70% tổng giá tour.</h3>
               </div>
               <div className="interface-right-price">
-                <p>{tour.price}<sup>đ</sup></p>
-              </div>
-              <div className="interface-quantity">
-                <p className="interface-quantity-text">Số người tham gia:</p>
-                <input className="interface-quantity-number" type="number" min="0" />
-              </div>
-              <div className="interface-right-button">
-                <button> Đặt tour </button>
+                <p className='tour-price'>{tour.price}<sup>đ</sup></p>
               </div>
             </div>
 
@@ -52,16 +45,16 @@ export default function Tour() {
           <div className="interface-detail">
             <div className="interface-detail-top">
               <div className="interface-detail-top-header">
-                <h3>CHI TIẾT TOUR</h3>
+                <h3>Chi tiết tour</h3>
               </div>
 
               <div className="interface-detail-top-detail">
                 <h5>Thời gian khởi hành</h5>
-                <p>{tour.time_start}</p>
+                <p>22-5-2023</p>
               </div>
               <div className="interface-detail-top-detail">
                 <h5>Thời gian du lịch</h5>
-                <p>{tour.travel_time}</p>
+                <p>3N2Đ</p>
               </div>
               <div className="interface-detail-top-detail">
                 <h5>Phương tiện di chuyển

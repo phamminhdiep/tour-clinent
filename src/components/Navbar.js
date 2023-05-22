@@ -18,8 +18,8 @@ export default function Navbar(){
                     </Link>
                 </li>
                 <li>
-                    <Link className="nav-link" to={'/booking'}>
-                        <i class="fa-solid fa-cart-shopping"></i> Booking
+                    <Link className="nav-link" to={'/hotels'}>
+                        <i class="fa-solid fa-hotel"></i> Hotel
                     </Link>
                 </li>
                 <li>

@@ -2,7 +2,7 @@ import React from 'react'
 import './Home.css'
 import Navbar from '../components/Navbar'
 import { Link } from 'react-router-dom'
-import image from '../image/halong.jpg'
+import image from '../image/halong.png'
 
 export default function Home() {
   return (

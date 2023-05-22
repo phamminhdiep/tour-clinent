@@ -4,7 +4,7 @@ import './TourCard.css'
 
 
 function TourCard(props) {
-    const imageUrl = props.tour.image_url;
+    const imageUrl = props.tour.imageUrl;
     const formattedprice = props.tour.price.toLocaleString('en-US')
     console.log(imageUrl)
     return (

@@ -9,18 +9,29 @@ import Button from 'react-bootstrap/Button';
 
 export default function Admin() {
     const [tours, setTours] = useState([]);
+    const [hotels, setHotels] = useState([]);
     
 
     useEffect(() => {
         fetchTours();
-        
+        fetchHotels();
     }, []);
 
     const fetchTours = async () => {
         try {
-            const response = await axios.get('http://localhost:8080/tours');
+            const response = await axios.get('http://localhost:8060/tours');
             setTours(response.data);
             console.log(tours);
+        } catch (error) {
+            console.error('Error fetching', error);
+        }
+    };
+
+    const fetchHotels = async () => {
+        try {
+            const response = await axios.get('http://localhost:8060/hotels');
+            setHotels(response.data);
+            console.log(hotels);
         } catch (error) {
             console.error('Error fetching', error);
         }
@@ -31,17 +42,18 @@ export default function Admin() {
     return (
 
         <div>
-           
-            <Table striped bordered hover>
+            <div className='tours-table'>
+            <h2>Danh Sách Tour</h2>
+            <Table striped bordered hover >
+                
                 <thead>
                     <tr >
                         <th>Id</th>
                         <th>Tên</th>
-                        <th>Ngày bắt đầu</th>
-                        <th>Thời gian</th>
                         <th>Giá</th>
                         <th>Ảnh</th>
                         <th>Mô tả</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -49,55 +61,59 @@ export default function Admin() {
                         <tr key={data.id}>
                             <td>{data.id}</td>
                             <td>{data.name}</td>
-                            <td>{data.time_start}</td>
-                            <td>{data.travel_time}</td>
                             <td>{data.price}</td>
-                            <td>{data.image_url}</td>
+                            <td>{data.imageUrl}</td>
                             <td>{data.description}</td>
                             <td className="actions">
-                                <Link to={`/admin/edit/${data.id}`}> Edit </Link>
-                                <Link to={`/admin/delete/${data.id}`}> Delete </Link>
+                                <Link to={`/admin/edit/tours/${data.id}`}> Edit </Link>
+                                <Link to={`/admin/delete/tours/${data.id}`}> Delete </Link>
                             </td>
                         </tr>
                     )}
                 </tbody>
             </Table>
             <div className='button-container'>
-                <Link to={'/admin/add'}><Button variant="primary" className='button'>Thêm mới tour</Button></Link>
+                <Link to={'/admin/add/tours'}><Button variant="primary" className='button'>Thêm mới tour</Button></Link>
                 <Link to={'/'}><Button variant="primary" className='button'>Trở lại</Button></Link>
             </div>
-           
+            </div>
             
-            
-            {/* <Table striped bordered hover>
+           <div className='hotel-table'>
+            <h2>Danh Sách Khách Sạn</h2>
+           <Table striped bordered hover >
                 <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Tên người dùng</th>
-                        <th>Email</th>
-                        <th>Số điện thoại</th>
-                        <th>Địa chỉ</th>
-                        <th className="actions">Actions</th>
+                    <tr >
+                        <th>Id</th>
+                        <th>Tên</th>
+                        <th>Ảnh</th>
+                        <th>Id Tour</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
-
-                    {users.map((data) => {
-                        <tr>
+                    {hotels.map((data) =>
+                        <tr key={data.id}>
                             <td>{data.id}</td>
                             <td>{data.name}</td>
-                            <td>{data.email}</td>
-                            <td>{data.phone_number}</td>
-                            <td>{data.address}</td>
+                            <td>{data.imageUrl}</td>
+                            
+                            <td>{data.tourId}</td>
                             <td className="actions">
-                                <Link >Edit</Link>
-                                <Link >Delete</Link>
+                                <Link to={`/admin/edit/hotels/${data.id}`}> Edit </Link>
+                                <Link to={`/admin/delete/hotels/${data.id}`}> Delete </Link>
                             </td>
                         </tr>
-                    })}
-
+                    )}
                 </tbody>
-            </Table> */}
+            </Table>
+            <div className='button-container'>
+                <Link to={'/admin/add/hotels'}><Button variant="primary" className='button'>Thêm mới khách sạn</Button></Link>
+                <Link to={'/'}><Button variant="primary" className='button'>Trở lại</Button></Link>
+            </div>
+            
+           </div>
+            
+            
         </div>
     )
 }
